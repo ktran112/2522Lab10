@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @version 1.0
  */
-public class SummaryTable
+public class QuizAppSummaryTable
 {
     private static final int UNIVERSAL_SPACING = 10;
     private static final String UNIVERSAL_STYLE = "-fx-font-size: 18px;";
@@ -52,7 +52,7 @@ public class SummaryTable
     /**
      * Constructs a ca.bcit.comp2522.lab10.SummaryTable screen, initializing the results table and back button.
      */
-    public SummaryTable()
+    public QuizAppSummaryTable()
     {
         this.root = new VBox();
         this.table = table();
