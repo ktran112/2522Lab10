@@ -1,7 +1,5 @@
 package ca.bcit.comp2522.lab10;
 
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,32 +17,6 @@ import java.util.List;
  */
 public class SummaryTable
 {
-    private static final int UNIVERSAL_SPACING = 10;
-    private static final String UNIVERSAL_STYLE = "-fx-font-size: 18px;";
-    private static final double UNIVERSAL_MESSAGE_DURATION_SECONDS = 3;
-
-    private static final double TABLE_MAX_WIDTH = -1;
-    private static final double TABLE_TOP_MARG = -1;
-    private static final double TABLE_RIGHT_MARG = -1;
-    private static final double TABLE_BOTTOM_MARG = 0;
-    private static final double TABLE_LEFT_MARG = -1;
-    private static final double TABLE_TOP_PAD = 0;
-    private static final double TABLE_RIGHT_PAD = -1;
-    private static final double TABLE_BOTTOM_PAD = -1;
-    private static final double TABLE_LEFT_PAD = -1;
-    private static final String TABLE_STYLE = "-fx-font-size:12px; -fx-text-fill: black; -fx-font-weight: bold;";
-
-    private static final double BACK_BUTTON_MAX_WIDTH = -1;
-    private static final double BACK_BUTTON_TOP_MARG = 80;
-    private static final double BACK_BUTTON_RIGHT_MARG = -1;
-    private static final double BACK_BUTTON_BOTTOM_MARG = -1;
-    private static final double BACK_BUTTON_LEFT_MARG = -1;
-    private static final double BACK_BUTTON_TOP_PAD = 10;
-    private static final double BACK_BUTTON_RIGHT_PAD = 10;
-    private static final double BACK_BUTTON_BOTTOM_PAD = 10;
-    private static final double BACK_BUTTON_LEFT_PAD = 10;
-    private static final String BACK_BUTTON_STYLE = "-fx-font-size: 24px; -fx-text-fill: #06402B; -fx-background-color: #96D9C0";
-
     private final VBox root;
     private final TableView<RoundInstance> table;
     private final Button backButton;
@@ -58,12 +30,12 @@ public class SummaryTable
         this.table = table();
         this.backButton = backButton();
 
-        this.root.setAlignment(Pos.CENTER);
-        this.root.setSpacing(UNIVERSAL_SPACING);
-        this.root.setStyle(UNIVERSAL_STYLE);
+        this.root.getStyleClass().add("summary-Root");
+        this.table.getStyleClass().add("summary-Table");
+        this.backButton.getStyleClass().add("summary-BackButton");
 
-        this.root.getChildren().add(this.table);
-        this.root.getChildren().add(this.backButton);
+        this.root.getChildren().addAll( this.table,
+                                        this.backButton);
     }
 
     /**
@@ -107,7 +79,12 @@ public class SummaryTable
         return this.backButton;
     }
 
-    private final TableView<RoundInstance> table()
+    /*
+     * Creates and configures the table used to display round results.
+     *
+     * @return the configured TableView of RoundInstance objects
+     */
+    private TableView<RoundInstance> table()
     {
         final TableView<RoundInstance> table;
         final TableColumn<RoundInstance, Integer> numberCol;
@@ -145,40 +122,23 @@ public class SummaryTable
         table.getColumns().add(actualAnswerCol);
         table.getColumns().add(markCol);
 
-        VBox.setMargin(table, new Insets(TABLE_TOP_MARG,
-                TABLE_RIGHT_MARG,
-                TABLE_BOTTOM_MARG,
-                TABLE_LEFT_MARG));
-
-        table.setPadding(new Insets(TABLE_TOP_PAD,
-                TABLE_RIGHT_PAD,
-                TABLE_BOTTOM_PAD,
-                TABLE_LEFT_PAD));
-
-        table.setStyle(TABLE_STYLE);
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
 
         return table;
     }
 
-    private final Button backButton()
+    /*
+     * Creates the button that returns to the ending screen.
+     *
+     * @return the back Button
+     */
+    private Button backButton()
     {
         final Button backButton;
 
         backButton = new Button();
 
         backButton.setText("Back");
-        backButton.setStyle(BACK_BUTTON_STYLE);
-
-        VBox.setMargin(backButton, new Insets(BACK_BUTTON_TOP_MARG,
-                BACK_BUTTON_RIGHT_MARG,
-                BACK_BUTTON_BOTTOM_MARG,
-                BACK_BUTTON_LEFT_MARG));
-
-        backButton.setPadding(new Insets(BACK_BUTTON_TOP_PAD,
-                BACK_BUTTON_RIGHT_PAD,
-                BACK_BUTTON_BOTTOM_PAD,
-                BACK_BUTTON_LEFT_PAD));
 
         return backButton;
     }

@@ -5,8 +5,6 @@ import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -22,7 +20,7 @@ import java.util.*;
 /**
  * Represents the active gameplay screen of the Quiz App.
  *
- * @author Kiet Tran
+ * @author Kiet Tran, AngEng Nay
  *
  * @version 1.0
  */
@@ -34,95 +32,8 @@ public class QuizAppPlaying
 
     private static final String DIRECTORY = "questions.txt";
 
-    private static final int UNIVERSAL_SPACING = 10;
-    private static final String UNIVERSAL_STYLE = "-fx-font-size: 18px;";
     private static final double UNIVERSAL_MESSAGE_DURATION_SECONDS = 3;
     private static final int UNIVERSAL_TIMER_LENGTH_SECONDS = 60;
-
-    private static final double QUESTION_MAX_WIDTH = -1;
-    private static final double QUESTION_TOP_MARG = 40;
-    private static final double QUESTION_RIGHT_MARG = -1;
-    private static final double QUESTION_BOTTOM_MARG = -1;
-    private static final double QUESTION_LEFT_MARG = -1;
-    private static final double QUESTION_TOP_PAD = -1;
-    private static final double QUESTION_RIGHT_PAD = -1;
-    private static final double QUESTION_BOTTOM_PAD = -1;
-    private static final double QUESTION_LEFT_PAD = -1;
-
-    private static final double TEXT_FIELD_MAX_WIDTH = 300;
-    private static final double TEXT_FIELD_MIN_WIDTH = 100;
-    private static final double TEXT_FIELD_TOP_MARG = 20;
-    private static final double TEXT_FIELD_RIGHT_MARG = -1;
-    private static final double TEXT_FIELD_BOTTOM_MARG = -1;
-    private static final double TEXT_FIELD_LEFT_MARG = -1;
-    private static final double TEXT_FIELD_TOP_PAD = 10;
-    private static final double TEXT_FIELD_RIGHT_PAD = 10;
-    private static final double TEXT_FIELD_BOTTOM_PAD = 10;
-    private static final double TEXT_FIELD_LEFT_PAD = 10;
-
-    private static final double SUBMIT_BTN_MAX_WIDTH = 200;
-    private static final double SUBMIT_BTN_TOP_MARG = 80;
-    private static final double SUBMIT_BTN_RIGHT_MARG = -1;
-    private static final double SUBMIT_BTN_BOTTOM_MARG = -1;
-    private static final double SUBMIT_BTN_LEFT_MARG = -1;
-    private static final double SUBMIT_BTN_TOP_PAD = -1;
-    private static final double SUBMIT_BTN_RIGHT_PAD = -1;
-    private static final double SUBMIT_BTN_BOTTOM_PAD = -1;
-    private static final double SUBMIT_BTN_LEFT_PAD = -1;
-    private static final String SUBMIT_BTN_STYLE = "-fx-font-size: 24px; -fx-text-fill: #06402B; -fx-background-color: #96D9C0;";
-
-    private static final double SCORE_MAX_WIDTH = 200;
-    private static final double SCORE_TOP_MARG = -1;
-    private static final double SCORE_RIGHT_MARG = -1;
-    private static final double SCORE_BOTTOM_MARG = -1;
-    private static final double SCORE_LEFT_MARG = -1;
-    private static final double SCORE_TOP_PAD = -1;
-    private static final double SCORE_RIGHT_PAD = -1;
-    private static final double SCORE_BOTTOM_PAD = -1;
-    private static final double SCORE_LEFT_PAD = -1;
-
-    private static final double TIMER_MAX_WIDTH = 200;
-    private static final double TIMER_TOP_MARG = -1;
-    private static final double TIMER_RIGHT_MARG = -1;
-    private static final double TIMER_BOTTOM_MARG = -1;
-    private static final double TIMER_LEFT_MARG = -1;
-    private static final double TIMER_TOP_PAD = -1;
-    private static final double TIMER_RIGHT_PAD = -1;
-    private static final double TIMER_BOTTOM_PAD = -1;
-    private static final double TIMER_LEFT_PAD = -1;
-
-    private static final double BLANK_INPUT_MESSAGE_MAX_WIDTH = -1;
-    private static final double BLANK_INPUT_MESSAGE_TOP_MARG = -1;
-    private static final double BLANK_INPUT_MESSAGE_RIGHT_MARG = -1;
-    private static final double BLANK_INPUT_MESSAGE_BOTTOM_MARG = 0;
-    private static final double BLANK_INPUT_MESSAGE_LEFT_MARG = -1;
-    private static final double BLANK_INPUT_MESSAGE_TOP_PAD = 0;
-    private static final double BLANK_INPUT_MESSAGE_RIGHT_PAD = -1;
-    private static final double BLANK_INPUT_MESSAGE_BOTTOM_PAD = -1;
-    private static final double BLANK_INPUT_MESSAGE_LEFT_PAD = -1;
-    private static final String BLANK_INPUT_MESSAGE_STYLE = "-fx-font-size: 20px; -fx-text-fill: red; -fx-font-weight: bold;";
-
-    private static final double INCORRECT_MESSAGE_MAX_WIDTH = -1;
-    private static final double INCORRECT_MESSAGE_TOP_MARG = -1;
-    private static final double INCORRECT_MESSAGE_RIGHT_MARG = -1;
-    private static final double INCORRECT_MESSAGE_BOTTOM_MARG = 0;
-    private static final double INCORRECT_MESSAGE_LEFT_MARG = -1;
-    private static final double INCORRECT_MESSAGE_TOP_PAD = 0;
-    private static final double INCORRECT_MESSAGE_RIGHT_PAD = -1;
-    private static final double INCORRECT_MESSAGE_BOTTOM_PAD = -1;
-    private static final double INCORRECT_MESSAGE_LEFT_PAD = -1;
-    private static final String INCORRECT_MESSAGE_STYLE = "-fx-font-size: 20px; -fx-text-fill: red; -fx-font-weight: bold;";
-
-    private static final double CORRECT_MESSAGE_MAX_WIDTH = -1;
-    private static final double CORRECT_MESSAGE_TOP_MARG = -1;
-    private static final double CORRECT_MESSAGE_RIGHT_MARG = -1;
-    private static final double CORRECT_MESSAGE_BOTTOM_MARG = 0;
-    private static final double CORRECT_MESSAGE_LEFT_MARG = -1;
-    private static final double CORRECT_MESSAGE_TOP_PAD = 0;
-    private static final double CORRECT_MESSAGE_RIGHT_PAD = -1;
-    private static final double CORRECT_MESSAGE_BOTTOM_PAD = -1;
-    private static final double CORRECT_MESSAGE_LEFT_PAD = -1;
-    private static final String CORRECT_MESSAGE_STYLE = "-fx-font-size: 20px; -fx-text-fill: green; -fx-font-weight: bold;";
 
     private final VBox root;
     private final Label question;
@@ -182,15 +93,18 @@ public class QuizAppPlaying
 
         this.gameEnd = new SimpleBooleanProperty(false);
 
-        this.root.setAlignment(Pos.CENTER);
-        this.root.setSpacing(UNIVERSAL_SPACING);
-        this.root.setStyle(UNIVERSAL_STYLE);
+        this.root.getStyleClass().add("playing-Root");
+        this.question.getStyleClass().add("playing-Question");
+        this.textField.getStyleClass().add("playing-TextField");
+        this.submitButton.getStyleClass().add("playing-SubmitButton");
+        this.score.getStyleClass().add("playing-Score");
+        this.timer.getStyleClass().add("playing-Timer");
 
-        this.root.getChildren().add(this.question);
-        this.root.getChildren().add(this.textField);
-        this.root.getChildren().add(this.submitButton);
-        this.root.getChildren().add(this.score);
-        this.root.getChildren().add(this.timer);
+        this.root.getChildren().addAll( this.question,
+                                        this.textField,
+                                        this.submitButton,
+                                        this.score,
+                                        this.timer);
     }
 
     /**
@@ -238,6 +152,7 @@ public class QuizAppPlaying
             if (!this.popupMessage)
             {
                 this.blankInputMessage = blankInputMessage();
+                this.blankInputMessage.getStyleClass().add("playing-BlankInputMessage");
                 popMessage(this.blankInputMessage);
             }
         }
@@ -450,7 +365,10 @@ public class QuizAppPlaying
         return this.gameEnd.get();
     }
 
-    private final void updateQuestionAnswer()
+    /*
+     * Updates the current question and answer using the current question index.
+     */
+    private void updateQuestionAnswer()
     {
         final String[] questionAnswer;
 
@@ -462,17 +380,28 @@ public class QuizAppPlaying
         this.question.setText(this.currentQuestion);
     }
 
-    private final void updateScore()
+    /*
+     * Updates the score label to reflect the player's current score.
+     */
+    private void updateScore()
     {
         this.score.setText("Your score: " + this.currentScore);
     }
 
-    private final void updateTimer(final int time)
+    /*
+     * Updates the timer label with the given remaining time.
+     *
+     * @param time the number of seconds remaining
+     */
+    private void updateTimer(final int time)
     {
         this.timer.setText("Timer: " + time);
     }
 
-    private final void timerLogic()
+    /*
+     * Starts and runs the countdown timer for the quiz.
+     */
+    private void timerLogic()
     {
         final Timeline timeline;
 
@@ -498,7 +427,11 @@ public class QuizAppPlaying
         timeline.play();
     }
 
-    private final void checkAnswer()
+    /*
+     * Checks the player's submitted answer, records the round result,
+     * and updates the score and feedback message.
+     */
+    private void checkAnswer()
     {
         final RoundInstance round;
         final String mark;
@@ -506,6 +439,7 @@ public class QuizAppPlaying
         if (this.userAnswer.trim().equalsIgnoreCase(this.currentAnswer.trim()))
         {
             this.correctMessage = correctMessage();
+            this.correctMessage.getStyleClass().add("playing-CorrectMessage");
             popMessage(this.correctMessage);
             ++this.currentScore;
             mark = "Correct";
@@ -514,6 +448,7 @@ public class QuizAppPlaying
         else
         {
             this.incorrectMessage = incorrectMessage();
+            this.incorrectMessage.getStyleClass().add("playing-IncorrectMessage");
             popMessage(this.incorrectMessage);
             mark = "Incorrect";
         }
@@ -525,46 +460,33 @@ public class QuizAppPlaying
         this.listOfRounds.add(round);
     }
 
-    private final Label question()
+    /*
+     * Creates the label used to display quiz questions.
+     *
+     * @return the question Label
+     */
+    private Label question()
     {
         final Label question;
 
         question = new Label();
 
-        question.setAlignment(Pos.CENTER);
-        question.setMaxWidth(QUESTION_MAX_WIDTH);
-
-        VBox.setMargin(question, new Insets(QUESTION_TOP_MARG,
-                QUESTION_RIGHT_MARG,
-                QUESTION_BOTTOM_MARG,
-                QUESTION_LEFT_MARG));
-
-        question.setPadding(new Insets(QUESTION_TOP_PAD,
-                QUESTION_RIGHT_PAD,
-                QUESTION_BOTTOM_PAD,
-                QUESTION_LEFT_PAD));
-
         return question;
     }
 
-    private final TextField textField()
+    /*
+     * Creates the text field used for entering answers and
+     * attaches its keyboard event handlers.
+     *
+     * @return the answer TextField
+     */
+    private TextField textField()
     {
         final TextField inputField;
 
         inputField = new TextField();
 
         inputField.setPromptText("Enter your answer");
-        inputField.setMaxWidth(TEXT_FIELD_MAX_WIDTH);
-
-        VBox.setMargin(inputField, new Insets(TEXT_FIELD_TOP_MARG,
-                TEXT_FIELD_RIGHT_MARG,
-                TEXT_FIELD_BOTTOM_MARG,
-                TEXT_FIELD_LEFT_MARG));
-
-        inputField.setPadding(new Insets(TEXT_FIELD_TOP_PAD,
-                TEXT_FIELD_RIGHT_PAD,
-                TEXT_FIELD_BOTTOM_PAD,
-                TEXT_FIELD_LEFT_PAD));
 
         inputField.addEventHandler(KeyEvent.KEY_PRESSED, event ->
         {
@@ -583,51 +505,44 @@ public class QuizAppPlaying
         return inputField;
     }
 
-    private final Button submitButton()
+    /*
+     * Creates the submit button and attaches its mouse click handler.
+     *
+     * @return the submit Button
+     */
+    private Button submitButton()
     {
         final Button btn;
 
         btn = new Button();
 
         btn.setText("Submit");
-        btn.setMaxWidth(SUBMIT_BTN_MAX_WIDTH);
-        btn.setStyle(SUBMIT_BTN_STYLE);
-
-        VBox.setMargin(btn, new Insets(SUBMIT_BTN_TOP_MARG,
-                SUBMIT_BTN_RIGHT_MARG,
-                SUBMIT_BTN_BOTTOM_MARG,
-                SUBMIT_BTN_LEFT_MARG));
-
-        btn.setPadding(new Insets(SUBMIT_BTN_TOP_PAD,
-                SUBMIT_BTN_RIGHT_PAD,
-                SUBMIT_BTN_BOTTOM_PAD,
-                SUBMIT_BTN_LEFT_PAD));
 
         btn.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> onSubmit());
 
         return btn;
     }
 
-    private final Label score()
+    /*
+     * Creates the score label.
+     *
+     * @return the score Label
+     */
+    private Label score()
     {
         final Label score;
 
         score = new Label();
 
-        VBox.setMargin(score, new Insets(SCORE_TOP_MARG,
-                SCORE_RIGHT_MARG,
-                SCORE_BOTTOM_MARG,
-                SCORE_LEFT_MARG));
-
-        score.setPadding(new Insets(SCORE_TOP_PAD,
-                SCORE_RIGHT_PAD,
-                SCORE_BOTTOM_PAD,
-                SCORE_LEFT_PAD));
-
         return score;
     }
 
-    private final Label timer()
+    /*
+     * Creates the timer label.
+     *
+     * @return the timer Label
+     */
+    private Label timer()
     {
         final Label timer;
 
@@ -635,84 +550,53 @@ public class QuizAppPlaying
 
         timer.setVisible(false);
 
-        VBox.setMargin(timer, new Insets(TIMER_TOP_MARG,
-                TIMER_RIGHT_MARG,
-                TIMER_BOTTOM_MARG,
-                TIMER_LEFT_MARG));
-
-        timer.setPadding(new Insets(TIMER_TOP_PAD,
-                TIMER_RIGHT_PAD,
-                TIMER_BOTTOM_PAD,
-                TIMER_LEFT_PAD));
-
         return timer;
     }
 
-    private final Label blankInputMessage()
+    /*
+     * Creates the popup label shown when the input field is blank.
+     *
+     * @return the blank input message Label
+     */
+    private Label blankInputMessage()
     {
         final Label blankInputMessage;
 
         blankInputMessage = new Label();
 
         blankInputMessage.setText("Text field is empty");
-        blankInputMessage.setMaxWidth(BLANK_INPUT_MESSAGE_MAX_WIDTH);
-        blankInputMessage.setStyle(BLANK_INPUT_MESSAGE_STYLE);
-
-        VBox.setMargin(blankInputMessage, new Insets(BLANK_INPUT_MESSAGE_TOP_MARG,
-                BLANK_INPUT_MESSAGE_RIGHT_MARG,
-                BLANK_INPUT_MESSAGE_BOTTOM_MARG,
-                BLANK_INPUT_MESSAGE_LEFT_MARG));
-
-        blankInputMessage.setPadding(new Insets(BLANK_INPUT_MESSAGE_TOP_PAD,
-                BLANK_INPUT_MESSAGE_RIGHT_PAD,
-                BLANK_INPUT_MESSAGE_BOTTOM_PAD,
-                BLANK_INPUT_MESSAGE_LEFT_PAD));
 
         return blankInputMessage;
     }
 
-    private final Label incorrectMessage()
+    /*
+     * Creates the popup label shown when the submitted answer is incorrect.
+     *
+     * @return the incorrect message Label
+     */
+    private Label incorrectMessage()
     {
         final Label incorrectMessage;
 
         incorrectMessage = new Label();
 
         incorrectMessage.setText("Incorrect \uD83D\uDE14");
-        incorrectMessage.setMaxWidth(INCORRECT_MESSAGE_MAX_WIDTH);
-        incorrectMessage.setStyle(INCORRECT_MESSAGE_STYLE);
-
-        VBox.setMargin(incorrectMessage, new Insets(INCORRECT_MESSAGE_TOP_MARG,
-                INCORRECT_MESSAGE_RIGHT_MARG,
-                INCORRECT_MESSAGE_BOTTOM_MARG,
-                INCORRECT_MESSAGE_LEFT_MARG));
-
-        incorrectMessage.setPadding(new Insets(INCORRECT_MESSAGE_TOP_PAD,
-                INCORRECT_MESSAGE_RIGHT_PAD,
-                INCORRECT_MESSAGE_BOTTOM_PAD,
-                INCORRECT_MESSAGE_LEFT_PAD));
 
         return incorrectMessage;
     }
 
-    private final Label correctMessage()
+    /*
+     * Creates the popup label shown when the submitted answer is correct.
+     *
+     * @return the correct message Label
+     */
+    private Label correctMessage()
     {
         final Label correctMessage;
 
         correctMessage = new Label();
 
         correctMessage.setText("Correct \uD83D\uDE01");
-        correctMessage.setMaxWidth(CORRECT_MESSAGE_MAX_WIDTH);
-        correctMessage.setStyle(CORRECT_MESSAGE_STYLE);
-
-        VBox.setMargin(correctMessage, new Insets(CORRECT_MESSAGE_TOP_MARG,
-                CORRECT_MESSAGE_RIGHT_MARG,
-                CORRECT_MESSAGE_BOTTOM_MARG,
-                CORRECT_MESSAGE_LEFT_MARG));
-
-        correctMessage.setPadding(new Insets(CORRECT_MESSAGE_TOP_PAD,
-                CORRECT_MESSAGE_RIGHT_PAD,
-                CORRECT_MESSAGE_BOTTOM_PAD,
-                CORRECT_MESSAGE_LEFT_PAD));
 
         return correctMessage;
     }

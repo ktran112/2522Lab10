@@ -8,11 +8,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Entry point for the Quiz App JavaFX app.
  *
- * @author Kiet Tran
+ * @author Kiet Tran, AngEng Nay
  *
  * @version 1.0
  */
@@ -47,14 +48,18 @@ public class Main extends Application
         sceneEnding = new Scene(ending.getRoot(), 600, 700);
         sceneSummary = new Scene(summary.getRoot(), 600, 700);
 
+        addStylesheet(sceneMenu, "styles.css");
+        addStylesheet(scenePlaying, "styles.css");
+        addStylesheet(sceneEnding, "styles.css");
+        addStylesheet(sceneSummary, "styles.css");
+
         primary.setTitle("Quiz App");
         primary.setScene(sceneMenu);
         primary.show();
 
-        menu.getStartButton().addEventHandler(MouseEvent.MOUSE_CLICKED, event ->
-        {
-            primary.setScene(scenePlaying);
-        });
+        menu.getStartButton().addEventHandler(MouseEvent.MOUSE_CLICKED,
+                event -> primary.setScene(scenePlaying)
+        );
 
         playing.getSubmitButton().addEventHandler(MouseEvent.MOUSE_CLICKED, event ->
         {
@@ -86,10 +91,9 @@ public class Main extends Application
             primary.setScene(sceneSummary);
         });
 
-        summary.getBackButton().addEventHandler(MouseEvent.MOUSE_CLICKED, event ->
-        {
-            primary.setScene(sceneEnding);
-        });
+        summary.getBackButton().addEventHandler(MouseEvent.MOUSE_CLICKED,
+                event -> primary.setScene(sceneEnding)
+        );
 
         playing.isGameEndProperty().addListener((observable, o, n) ->
         {
@@ -109,5 +113,20 @@ public class Main extends Application
     public static void main(final String[] args)
     {
         launch(args);
+    }
+
+    /**
+     * Adds a CSS stylesheet to the given scene using the provided resource path.
+     *
+     * @param scene the Scene to which the stylesheet will be applied
+     * @param pathName the path to the CSS file relative to the classpath
+     *
+     * @throws NullPointerException if the stylesheet resource cannot be found
+     */
+    private void addStylesheet(final Scene scene, final String pathName)
+    {
+        scene.getStylesheets().add(
+                Objects.requireNonNull(getClass().getResource(pathName)).toExternalForm()
+        );
     }
 }

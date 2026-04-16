@@ -1,0 +1,135 @@
+/* QuizAppMenu class styles */
+.menu-Root {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-font-size: 18;
+}
+
+.menu-Title {
+    -fx-font-size: 72;
+    -fx-text-fill: blue;
+    -fx-font-weight: bold;
+    -fx-margin: 0;
+    -fx-padding: -1 -1 -1 -1;
+}
+
+.menu-StartButton {
+    -fx-font-size: 24;
+    -fx-text-fill: #06402B;
+    -fx-background-color: #96D9C0;
+    -fx-margin: 80 0 0 0;
+    -fx-padding: 10;
+}
+
+.menu-Description {
+    -fx-font-size: 20;
+    -fx-margin: 10 0 0 0;
+    -fx-padding: 10;
+}
+
+/* QuizAppPlaying class styles */
+.playing-Root {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-font-size: 18;
+}
+
+.playing-Question {
+    -fx-alignment: center;
+    -fx-max-width: -1;
+    -fx-margin: 40 0 0 0;
+    -fx-padding: -1;
+}
+
+.playing-TextField {
+    -fx-max-width: 300;
+    -fx-margin: 20 0 0 0;
+    -fx-padding: 10;
+}
+
+.playing-SubmitButton {
+    -fx-max-width: 200;
+    -fx-font-size: 24px;
+    -fx-text-fill: #06402B;
+    -fx-background-color: #96D9C0;
+    -fx-margin: 50 0 0 0;
+    -fx-padding: -1;
+}
+
+.playing-Score {
+    -fx-padding: -1;
+}
+
+.playing-Timer {
+    -fx-padding: -1;
+}
+
+.playing-BlankInputMessage {
+    -fx-max-width: -1;
+    -fx-font-size: 20px;
+    -fx-text-fill: red;
+    -fx-font-weight: bold;
+    -fx-padding: 0 -1 -1 -1;
+}
+
+.playing-IncorrectMessage {
+    -fx-max-width: -1;
+    -fx-font-size: 20px;
+    -fx-text-fill: red;
+    -fx-font-weight: bold;
+    -fx-padding: -1 -1 0 -1;
+}
+
+.playing-CorrectMessage {
+    -fx-max-width: -1;
+    -fx-font-size: 20px;
+    -fx-text-fill: green;
+    -fx-font-weight: bold;
+    -fx-padding: 0 -1 -1 -1;
+}
+
+/* QuizAppPlaying class styles */
+.ending-Root {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-font-size: 18px;
+}
+
+.ending-Title {
+    -fx-font-size: 54px;
+    -fx-font-weight: bold;
+}
+
+.ending-RestartButton {
+    -fx-font-size: 24px;
+    -fx-text-fill: #06402B;
+    -fx-background-color: #96D9C0;
+    -fx-padding: 10;
+}
+
+.ending-SummaryButton {
+    -fx-font-size: 20px;
+    -fx-background-color: #36F6C0;
+    -fx-padding: 10;
+}
+
+/* SummaryTable class styles */
+.summary-Root {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-font-size: 18px;
+}
+
+.summary-Table {
+    -fx-font-size:12px;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-padding: 0 -1 -1 -1;
+}
+
+.summary-BackButton {
+    -fx-font-size: 24px;
+    -fx-text-fill: #06402B;
+    -fx-background-color: #96D9C0;
+    -fx-padding: 10;
+}

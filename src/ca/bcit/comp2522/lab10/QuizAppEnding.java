@@ -9,48 +9,12 @@ import javafx.scene.layout.VBox;
 /**
  * Represents the ending screen of the Quiz App, displaying the player's score and navigation options.
  *
- * @author Kiet Tran
+ * @author Kiet Tran, AngEng Nay
  *
  * @version 1.0
  */
 public class QuizAppEnding
 {
-    private static final int UNIVERSAL_SPACING = 10;
-    private static final String UNIVERSAL_STYLE = "-fx-font-size: 18px;";
-
-    private static final double TITLE_MAX_WIDTH = -1;
-    private static final double TITLE_TOP_MARG = -1;
-    private static final double TITLE_RIGHT_MARG = -1;
-    private static final double TITLE_BOTTOM_MARG = -1;
-    private static final double TITLE_LEFT_MARG = -1;
-    private static final double TITLE_TOP_PAD = -1;
-    private static final double TITLE_RIGHT_PAD = -1;
-    private static final double TITLE_BOTTOM_PAD = -1;
-    private static final double TITLE_LEFT_PAD = -1;
-    private static final String TITLE_STYLE = "-fx-font-size: 54px; -fx-font-weight: bold;";
-
-    private static final double RESTART_BUTTON_MAX_WIDTH = -1;
-    private static final double RESTART_BUTTON_TOP_MARG = 40;
-    private static final double RESTART_BUTTON_RIGHT_MARG = -1;
-    private static final double RESTART_BUTTON_BOTTOM_MARG = -1;
-    private static final double RESTART_BUTTON_LEFT_MARG = -1;
-    private static final double RESTART_BUTTON_TOP_PAD = 10;
-    private static final double RESTART_BUTTON_RIGHT_PAD = 10;
-    private static final double RESTART_BUTTON_BOTTOM_PAD = 10;
-    private static final double RESTART_BUTTON_LEFT_PAD = 10;
-    private static final String RESTART_BUTTON_STYLE = "-fx-font-size: 24px; -fx-text-fill: #06402B; -fx-background-color: #96D9C0;";
-
-    private static final double SUMMARY_MAX_WIDTH = -1;
-    private static final double SUMMARY_TOP_MARG = 10;
-    private static final double SUMMARY_RIGHT_MARG = -1;
-    private static final double SUMMARY_BOTTOM_MARG = -1;
-    private static final double SUMMARY_LEFT_MARG = -1;
-    private static final double SUMMARY_TOP_PAD = 10;
-    private static final double SUMMARY_RIGHT_PAD = 10;
-    private static final double SUMMARY_BOTTOM_PAD = 10;
-    private static final double SUMMARY_LEFT_PAD = 10;
-    private static final String SUMMARY_STYLE = "-fx-font-size: 20px; -fx-background-color: #36F6C0;";
-
     private final Label title;
     private final Button summaryButton;
     private final Button restartButton;
@@ -67,13 +31,15 @@ public class QuizAppEnding
         this.restartButton = restartButton();
         this.summaryButton = summaryButton();
 
-        this.root.setAlignment(Pos.CENTER);
-        this.root.setSpacing(UNIVERSAL_SPACING);
-        this.root.setStyle(UNIVERSAL_STYLE);
+        this.root.getStyleClass().add("ending-Root");
+        this.title.getStyleClass().add("ending-Title");
+        this.restartButton.getStyleClass().add("ending-RestartButton");
+        this.summaryButton.getStyleClass().add("ending-SummaryButton");
 
-        this.root.getChildren().add(this.title);
-        this.root.getChildren().add(this.summaryButton);
-        this.root.getChildren().add(this.restartButton);
+        this.root.getChildren().addAll( this.title,
+                                        this.restartButton,
+                                        this.summaryButton);
+
     }
 
     /**
@@ -116,67 +82,49 @@ public class QuizAppEnding
         return this.restartButton;
     }
 
-    private final Label title()
+
+    /*
+     * Creates the title label for the ending screen.
+     *
+     * @return the title Label
+     */
+    private Label title()
     {
         final Label title;
 
         title = new Label();
 
-        title.setStyle(TITLE_STYLE);
-
-        VBox.setMargin(title, new Insets(TITLE_TOP_MARG,
-                TITLE_RIGHT_MARG,
-                TITLE_BOTTOM_MARG,
-                TITLE_LEFT_MARG));
-
-        title.setPadding(new Insets(TITLE_TOP_PAD,
-                TITLE_RIGHT_PAD,
-                TITLE_BOTTOM_PAD,
-                TITLE_LEFT_PAD));
-
         return title;
     }
 
-    private final Button summaryButton()
+    /*
+     * Creates the button that opens the summary statistics screen.
+     *
+     * @return the summary Button
+     */
+    private Button summaryButton()
     {
         final Button summary;
 
         summary = new Button();
 
         summary.setText("View statistics");
-        summary.setStyle(SUMMARY_STYLE);
-
-        VBox.setMargin(summary, new Insets(SUMMARY_TOP_MARG,
-                SUMMARY_RIGHT_MARG,
-                SUMMARY_BOTTOM_MARG,
-                SUMMARY_LEFT_MARG));
-
-        summary.setPadding(new Insets(SUMMARY_TOP_PAD,
-                SUMMARY_RIGHT_PAD,
-                SUMMARY_BOTTOM_PAD,
-                SUMMARY_LEFT_PAD));
 
         return summary;
     }
 
-    private final Button restartButton()
+    /*
+     * Creates the button that restarts the quiz.
+     *
+     * @return the restart Button
+     */
+    private Button restartButton()
     {
         final Button restartButton;
 
         restartButton = new Button();
 
         restartButton.setText("Play Again?");
-        restartButton.setStyle(RESTART_BUTTON_STYLE);
-
-        VBox.setMargin(restartButton, new Insets(RESTART_BUTTON_TOP_MARG,
-                RESTART_BUTTON_RIGHT_MARG,
-                RESTART_BUTTON_BOTTOM_MARG,
-                RESTART_BUTTON_LEFT_MARG));
-
-        restartButton.setPadding(new Insets(RESTART_BUTTON_TOP_PAD,
-                RESTART_BUTTON_RIGHT_PAD,
-                RESTART_BUTTON_BOTTOM_PAD,
-                RESTART_BUTTON_LEFT_PAD));
 
         return restartButton;
     }

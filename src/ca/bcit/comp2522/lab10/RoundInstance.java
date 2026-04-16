@@ -3,7 +3,7 @@ package ca.bcit.comp2522.lab10;
 /**
  * Represents a single round of the Quiz App, storing the question, answers, and result.
  *
- * @author Kiet Tran
+ * @author Kiet Tran, AngEng Nay
  *
  * @version 1.0
  */

@@ -11,11 +11,11 @@ import java.util.List;
 /**
  * Utility class for reading a file's contents into a list.
  *
- * @author Kiet Tran
+ * @author Kiet Tran, AngEng Nay
  *
  * @version 1.0
  */
-public class FileToList
+public final class FileToList
 {
     private FileToList() {}
 
@@ -28,7 +28,7 @@ public class FileToList
      *
      * @throws IOException if the file cannot be found or read
      */
-    public static final List<String> read(final String directory) throws IOException
+    public static List<String> read(final String directory) throws IOException
     {
         final Path path;
         final List<String> myList;
@@ -50,7 +50,7 @@ public class FileToList
 
         catch (final IOException e)
         {
-            throw new IOException("Failed to grab from: \")" + directory + "\"");
+            throw new IOException("Failed to grab from: \"" + directory + "\"");
         }
     }
 }
