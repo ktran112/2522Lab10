@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @version 1.0
  */
-public class SummaryTable
+public class QuizAppSummaryTable
 {
     private final VBox root;
     private final TableView<RoundInstance> table;
@@ -24,7 +24,7 @@ public class SummaryTable
     /**
      * Constructs a ca.bcit.comp2522.lab10.SummaryTable screen, initializing the results table and back button.
      */
-    public SummaryTable()
+    public QuizAppSummaryTable()
     {
         this.root = new VBox();
         this.table = table();

@@ -36,12 +36,12 @@ public class Main extends Application
         final QuizAppMenu menu;
         final QuizAppPlaying playing;
         final QuizAppEnding ending;
-        final SummaryTable summary;
+        final QuizAppSummaryTable summary;
 
         menu = new QuizAppMenu();
         playing = new QuizAppPlaying();
         ending = new QuizAppEnding();
-        summary = new SummaryTable();
+        summary = new QuizAppSummaryTable();
 
         sceneMenu = new Scene(menu.getRoot(), 600, 700);
         scenePlaying = new Scene(playing.getRoot(), 600, 700);
